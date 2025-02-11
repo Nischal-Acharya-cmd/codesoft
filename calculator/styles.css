@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #6e8efb, #a777e3); /* Sleek gradient background */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  
+  .calculator {
+    width: 360px; /* Increased width for better balance */
+    background: #f9f9f9;
+    border-radius: 35px; /* Slightly larger radius for smoother edges */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  #display {
+    width: 100%;
+    height: 140px; /* Increased height for better readability */
+    text-align: right;
+    font-size: 56px; /* Larger font size */
+    padding: 25px;
+    border: none;
+    background: transparent;
+    color: #333;
+    outline: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative; /* Required for positioning the cursor */
+  }
+  
+  #display::after {
+    content: '|'; /* The cursor character */
+    position: absolute;
+    right: 25px; /* Adjust based on padding */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 56px; /* Match the display font size */
+    color: #333; /* Cursor color */
+    animation: blink 1s step-end infinite; /* Blinking animation with step-end for sharp transitions */
+  }
+  
+  /* Blink Animation */
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1; /* Fully visible */
+    }
+    50% {
+      opacity: 0; /* Fully transparent */
+    }
+  }
+  
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px; /* Slightly increased spacing between buttons */
+    padding: 25px;
+  }
+  
+  button {
+    height: 70px; /* Increased button size */
+    font-size: 28px; /* Larger font size for buttons */
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
+  
+  /* Button Colors */
+  button.zero {
+    grid-column: span 2;
+    border-radius: 35px; /* Rounded rectangle for zero button */
+  }
+  
+  button.operator {
+    background-color: #ff9500; /* Orange for operators */
+    color: white;
+  }
+  
+  button.operator:hover {
+    background-color: #e68a00;
+  }
+  
+  button.equal {
+    grid-column: span 2;
+    background-color: #34c759; /* Green for equals */
+    color: white;
+    border-radius: 35px;
+  }
+  
+  button.equal:hover {
+    background-color: #2da94f;
+  }
+  
+  button.number {
+    background-color: #ebebeb; /* Light gray for numbers */
+    color: #333;
+  }
+  
+  button.number:hover {
+    background-color: #dcdcdc;
+  }
+  
+  button.action {
+    background-color: #d0d0d0; /* Slightly darker gray for actions */
+    color: #333;
+  }
+  
+  button.action:hover {
+    background-color: #c0c0c0;
+  }
